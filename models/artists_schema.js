@@ -6,4 +6,6 @@ let artistSchema = mongoose.Schema({
     Genre: String,
     userId: ObjectId
   });
-  
+
+  module.exports = mongoose.model('Artist', artistSchema);
+
