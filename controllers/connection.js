@@ -1,15 +1,19 @@
 // requirements: import mongoose
-const mongoose = require('mongoose')
-
-
-// When it connects, then console.log "Connected to MongoDB"
-
-const dbConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/Project-2'
-mongoose.connect(dbConnection, { useNewUrlParser: true})
-  .then(() => {
-    console.log("Mongo is working");
-  })
-
-
+const mongoose = require('mongoose');
+// Connect to database
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+}
+else {
+  mongoose.connect('mongodb://localhost/MusicList', { useNewUrlParser: true });
+}
+mongoose.connection.on('error', function (err) {
+  console.error('MongoDB connection error: ' + err);
+  process.exit(-1);
+}
+);
+mongoose.connection.once('open', function () {
+  console.log("Mongoose has connected to MongoDB!");
+});
 // export your mongoose connection
-module.exports = mongoose
+module.exports = mongoose;
