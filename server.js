@@ -4,7 +4,7 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
-const routes = require('./routes/index')
+const routes = require('./routes')
 // const artistAPI = require("./controllers/artistsAPI")
 // const songAPI = require("./controllers/songAPI")
 
