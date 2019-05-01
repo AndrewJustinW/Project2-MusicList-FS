@@ -7,7 +7,8 @@
     <div>
         <ul>
             <li>
-            {{Username}} <a href="/user/{{_id}}">View</a> <a href="/user/{{_id}}/edit"> Edit</a> <a href="">Delete</a><br>
+            {{Username}} <a href="/user/{{_id}}">View</a> <a href="/user/{{_id}}/edit"> Edit</a>  <form action="/user/{{_id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form><br>
+            
             </li>
         </ul>
     </div>
