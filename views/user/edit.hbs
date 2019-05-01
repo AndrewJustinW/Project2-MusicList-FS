@@ -1,18 +1,18 @@
 <main>
-    <form action="/user/" method="POST">
+    <form action="/user/{{user._id}}?_method=PUT" method="POST">
 
         <div class="formBackground">
 
 
             <div id="Username">
                 <label for="Username">Username:</label>
-                <input type="text" name="Username">
+                <input value={{user.Username}} type="text" name="Username">
             </div>
 
             <div id="fg">
                 <label for="">Favorite Genre:</label>
-                <input type="text" name="FavoriteGenre">
-                <input type="submit" value="CreateUsername">
+                <input value={{user.FavoriteGenre}} type= "text" name= "FavoriteGenre">
+                <input type="submit" value= "Update">
 
 
             </div>

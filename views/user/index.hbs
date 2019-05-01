@@ -1,11 +1,16 @@
 <main>
 
 
-<h1>List Of Users</h1>
+    <h1>List Of Users</h1>
 
-{{#each users}}
-
-
-{{/each}}
-
+    {{#each users}}
+    <div>
+        <ul>
+            <li>
+            {{Username}} <a href="/user/{{_id}}">View</a> <a href="/user/{{_id}}/edit"> Edit</a> <a href="">Delete</a><br>
+            </li>
+        </ul>
+    </div>
+    {{/each}}
+    
 </main>
