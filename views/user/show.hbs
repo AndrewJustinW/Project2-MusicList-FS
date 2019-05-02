@@ -1,8 +1,65 @@
-<b>Username:</b> {{user.Username}}<br>
-<b>Favorite Genre:</b> {{user.FavoriteGenre}}<br>
-<a href="/user/{{user._id}}/edit"> Edit</a>  <form action="/user/{{user._id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form>
-<a href="/user/{{user._id}}/artist/new">Add Artist</a>
-<a href="/user/{{user._id}}/artist/">List of Artists</a>
-{{!-- <b>Email Address:</b><br>
-<b>Favorite Artist</b><br>
-<b>Favorite Song</b><br> --}}
+<body>
+<div class="userShowPage">
+
+    <nav id="sideBar">
+        <h1>Music Log</h1>
+        <a href="">Home</a>
+        <a href="">Artists</a>
+        <a href="">Songs</a>
+        <a href="">My Profile</a>
+    </nav>
+
+    <div id="rightSide">
+        <div id="uspInputs">
+            <b>Username:</b> {{user.Username}}<br>
+            <b>Favorite Genre:</b> {{user.FavoriteGenre}}<br>
+            <a href="/user/{{user._id}}/edit"> Edit</a>
+            <form action="/user/{{user._id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form>
+
+
+        </div>
+        <div id="uspThings">
+            <h3>Hey {{user.Username}}, here's your Favorite Music </h3>
+
+
+
+
+            <h1>Artists</h1> <a href="/user/{{user._id}}/artist/new">Add Artist</a>
+            {{#each artists}}
+
+
+            <ul>
+                <li>
+                    {{ArtistName}} <a href="/user/{{userId}}/artist/{{_id}}">View</a>
+                    <a href="/user/{{userId}}/artist/{{_id}}/edit"> Edit</a>
+                    <form action="/user/{{userId}}/artist/{{_id}}?_method=DELETE" method="POST"> <input type="submit"
+                            value="Delete"> </form><br>
+
+                </li>
+            </ul>
+            {{/each}}
+
+
+
+            <h1>List Of Songs</h1>
+
+            {{#each songs}}
+
+            <div>
+                <ul>
+                    <li>
+                        {{SongName}}{{user._id}}
+                        <a href="/user/{{userId}}/artist/{{artistId}}/song/{{_id}}">View</a>
+
+                        <a href="/user/{{userId}}/artist/{{artistId}}/song/{{_id}}/edit"> Edit</a>
+                        <form action="/user/{{userId}}/artist/{{artistId}}/song/{{_id}}?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete"> </form><br>
+
+                    </li>
+                </ul>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+</body>

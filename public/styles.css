@@ -1,23 +1,91 @@
 
-
 body {
   font-family: 'Ruluko', sans-serif;
-  width: 700px;
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
-h1{
-  color: green;
+/* general styling scheme */
+#sideBar{
+  background-color: rgb(39, 39, 39);
+  width:15vw;
+  height:100vh;
+  color: white;
 }
-#username{
-margin-bottom: 10px;
+#sideBar h1{
+  color: rgb(88, 132, 173);
+  margin-left: 2vw;
 }
-#fg{
+#sideBar a{
+  padding: 30px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #ececec;
+  display: block;
+}
+#sideBar a:hover {
+  color: rgb(88, 132, 173);
+}
+
+#rightSide{
+  width:70vw;
+  height:100vh;
+}
+
+/* home page styling */
+.homePage{
+background-image: url("./images/youarewhatyoulistento.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+display:flex;
+width: 100vw;
+height: 100vh;
+flex-direction: row;
+}
+#userLogin{
+  background-color:rgb(224, 63, 57);
+  border-radius: 2%;
+  width: 60%;
+  margin-left: 15%;
+  padding: 2%;
+  margin-top: 4%;
+}
+
+/* User show page styling */
+
+.userShowPage{
+  background-image: url("./images/headphonesBG.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display:flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row;
+
+  
+}
+
+#uspThings{
+  background-color:rgb(138, 171, 216);
+  border-radius: 2%;
+  width: 60%;
+  margin-left: 15%;
 
 }
-.formBackground{
-  padding: 100px;
-  padding-left: 0px;
-  padding-right: 20px;
-  background-color: green;
+
+#uspInputs{
+  padding: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: rgb(110, 110, 187);
+  width: 15vw;
+  margin-left: 70vw;
+
 }
-
-
+#uspLinks{
+  display:flex;
+  
+}

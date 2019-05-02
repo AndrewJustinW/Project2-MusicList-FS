@@ -1,4 +1,6 @@
+const ArtistSchema = require("../models/artistSchema")
 const UserSchema = require("../models/userSchema")
+const SongSchema = require("../models/songSchema")
 
 const userController = {
     home: function (req, res) {
@@ -18,17 +20,30 @@ const userController = {
     },
     create: function (req, res) {
         UserSchema.create(req.body)
-            .then(() => {
-                res.redirect("/user");
-            });
+        .then(user => {
+            res.redirect("/user/" + user._id);
+        })
+            // .then(() => {
+            //     res.redirect("/user/");
+            // });
     },
     show: function (req, res) {
         UserSchema.findById(req.params.uid)
             .then(user => {
-                res.render("user/show", {
-                    user
+                ArtistSchema.find({
+                    userId: req.params.uid
+                  })
+                  .then(artists => {
+                SongSchema.find({
+                    userId: req.params.uid
+                  })
+                  .then(songs => {
+                    res.render("user/show", {
+                    user: user, artists: artists, songs: songs
                 });
             });
+        });
+    });
     },
     edit: function (req, res) {
         UserSchema.findById(req.params.uid)

@@ -33,13 +33,9 @@ const songController = {
               user: user,
               artist: artist
             });
-
           })
-
       })
-
   },
-
 
   create: function (req, res) {
     SongSchema.create({
@@ -79,13 +75,14 @@ const songController = {
         ArtistSchema.findById(req.params.aid)
           .then(artist => {
             SongSchema.findById(req.params.sid)
-            .then(song => {
-              res.render("song/edit", {
-                user: user,
-                artist: artist, song: song
-              });
-  
-            })
+              .then(song => {
+                res.render("song/edit", {
+                  user: user,
+                  artist: artist,
+                  song: song
+                });
+
+              })
           });
       });
 
