@@ -1,4 +1,22 @@
-<b>Artist:</b> {{artist.ArtistName}}<br>
-<b>Genre:</b> {{artist.Genre}}<br>
- <a href="/user/{{artist.userId}}/artist/{{artist._id}}/edit"> Edit</a>  <form action="/user/{{artist.userId}}/artist/{{artist._id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form><br>
- <a href="/user/{{artist.userId}}/artist/{{artist._id}}/song/new">Add Song</a>
+<body>
+
+    <div class="userShowPage">
+
+        <nav id="sideBar">
+            <h1>Music Log</h1>
+            <a href="/">Home</a>
+            <a href="/user/{{user._id}}/artist">Artists</a>
+            <a href="/user/{{user._id}}/artist/{{artist._id}}/song">Songs</a>
+        </nav>
+        <div id="rightSide">
+            <div id="uspThings">
+                <b>Artist:</b> {{artist.ArtistName}}<br>
+                <b>Genre:</b> {{artist.Genre}}<br>
+                <a href="/user/{{artist.userId}}/artist/{{artist._id}}/edit"> Edit</a>
+                <form action="/user/{{artist.userId}}/artist/{{artist._id}}?_method=DELETE" method="POST"> <input
+                        type="submit" value="Delete"> </form><br>
+                <a href="/user/{{artist.userId}}/artist/{{artist._id}}/song/new">Add Song</a>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,21 +1,38 @@
-<main>
-    <form action="/user/" method="POST">
+<body>
+    <div class="homePage">
 
-        <div class="formBackground">
+        <nav id="sideBar">
+            <h1>Music Log</h1>
+            <a href="">Home</a>
+            <a href="">Artists</a>
+            <a href="">Songs</a>
+            <a href="">My Profile</a>
+        </nav>
+
+        <div id="rightSide">
+
+            <div id="userLogin">
+
+                <form action="/user/" method="POST">
+
+                    <div class="formBackground">
 
 
-            <div id="Username">
-                <label for="Username">Username:</label>
-                <input type="text" name="Username">
-            </div>
+                        <div id="Username">
+                            <label for="Username">Username:</label>
+                            <input type="text" name="Username">
+                        </div>
 
-            <div id="fg">
-                <label for="">Favorite Genre:</label>
-                <input type="text" name="FavoriteGenre">
-                <input type="submit" value="CreateUsername">
+                        <div id="fg">
+                            <label for="">Favorite Genre:</label>
+                            <input type="text" name="FavoriteGenre">
+                            <input type="submit" value="CreateUsername">
 
 
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-</main>
+    </div>
+</body>

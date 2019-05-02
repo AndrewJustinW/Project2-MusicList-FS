@@ -1,19 +1,36 @@
-<body class="userIndex">
-<main>
+<body>
+    <div class="userShowPage">
 
 
-    <h1>List Of Users</h1>
+        <nav id="sideBar">
+            <h1>Music Log</h1>
+            <a href="">Home</a>
+            <a href="">Artists</a>
+            <a href="">Songs</a>
+            <a href="">My Profile</a>
+        </nav>
+        <div id="rightSide">
+            <div id="uspThings">
 
-    {{#each users}}
-    <div>
-        <ul>
-            <li>
-            {{Username}} <a href="/user/{{_id}}">View</a> <a href="/user/{{_id}}/edit"> Edit</a>  <form action="/user/{{_id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form><br>
-            
-            </li>
-        </ul>
+                <h1>List Of Users</h1>
+
+                {{#each users}}
+                <div>
+                    <ul>
+                        <li>
+                            {{Username}} <a href="/user/{{_id}}">View</a> <a href="/user/{{_id}}/edit"> Edit</a>
+                            <form action="/user/{{_id}}?_method=DELETE" method="POST"> <input type="submit"
+                                    value="Delete">
+                            </form><br>
+
+                        </li>
+                    </ul>
+                </div>
+                {{/each}}
+
+
+            </div>
+
+        </div>
     </div>
-    {{/each}}
-    
-</main>
 </body>

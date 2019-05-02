@@ -1,22 +1,37 @@
-<main>
-    <form action="/user/{{user._id}}/artist" method="POST">
+<body>
+    <div class="homePage">
+   <nav id="sideBar">
+            <h1>Music Log</h1>
+            <a href="/user/{{user._id}}">Home</a>
+            <a href="/user/{{user._id}}/artist">Artists</a>
+            <a href="/user/{{user._id}}/artist/{{artist._id}}/song">Songs</a>
+        </nav>
+        <div id="rightSide">
 
-        <div class="formBackground">
+            <div id="userLogin">
+
+                <form action="/user/{{user._id}}/artist" method="POST">
+
+                    <div class="formBackground">
 
 
-            <div id="Artists">
-                <label for="Artist Name">Artist Name:</label>
-                <input type="text" name="ArtistName">
+                        <div id="Artists">
+                            <label for="Artist Name">Artist Name:</label>
+                            <input type="text" name="ArtistName">
+                        </div>
+
+                        <div id="fg">
+                            <label for="Genre">Genre: </label>
+                            <input type="text" name="Genre">
+                        </div>
+
+
+                        <input type="submit" value="Add Artist">
+
+                    </div>
+                </form>
             </div>
-
-            <div id="fg">
-                <label for="Genre">Genre: </label>
-                <input type="text" name="Genre">
-            </div>
-            
-            
-             <input type="submit" value="Add Artist">
-
         </div>
-    </form>
-</main>
+
+    </div>
+</body>

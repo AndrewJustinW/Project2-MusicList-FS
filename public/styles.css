@@ -10,7 +10,7 @@ body {
 #sideBar{
   background-color: rgb(39, 39, 39);
   width:15vw;
-  height:100vh;
+  height:100%;
   color: white;
 }
 #sideBar h1{
@@ -43,6 +43,8 @@ display:flex;
 width: 100vw;
 height: 100vh;
 flex-direction: row;
+overflow: auto;
+
 }
 #userLogin{
   background-color:rgb(224, 63, 57);
@@ -64,6 +66,8 @@ flex-direction: row;
   width: 100vw;
   height: 100vh;
   flex-direction: row;
+  overflow: auto;
+
 
   
 }
