@@ -1,0 +1,24 @@
+<main>
+
+    <h1>Add Song</h1>
+    <form action="/user/{{user._id}}/artist/{{artist._id}}/song" method="POST">
+
+        <div class="formBackground">
+
+
+            <div id="Songs">
+                <label for="Song Name">Song Name:</label>
+                <input type="text" name="SongName">
+            </div>
+
+            <div id="fg">
+                <label for="Album">Album: </label>
+                <input type="text" name="Album">
+            </div>
+            
+            
+             <input type="submit" value="Add Song">
+
+        </div>
+    </form>
+</main>

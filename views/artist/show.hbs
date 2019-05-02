@@ -1,3 +1,4 @@
 <b>Artist:</b> {{artist.ArtistName}}<br>
 <b>Genre:</b> {{artist.Genre}}<br>
  <a href="/user/{{artist.userId}}/artist/{{artist._id}}/edit"> Edit</a>  <form action="/user/{{artist.userId}}/artist/{{artist._id}}?_method=DELETE" method="POST"> <input type="submit" value="Delete"> </form><br>
+ <a href="/user/{{artist.userId}}/artist/{{artist._id}}/song/new">Add Song</a>

@@ -1,38 +1,104 @@
-const mongoose = require('./connection.js');
-const ObjectId = mongoose.Schema.Types.ObjectId
+const ArtistSchema = require("../models/artistSchema")
+const UserSchema = require("../models/userSchema")
+const SongSchema = require("../models/songSchema")
 
-let songSchema = mongoose.Schema({
-    Name: String,
-    Genre: String,
-    userId: ObjectId
-});
 
-let songCollection = mongoose.model('Song', songSchema);
+const songController = {
 
-function createSong(newUser) {
-  return songCollection.create(newUser);
-}
+    index: function (req, res) {
+      SongSchema.find({
+          artistId: req.params.aid
+        })
+        .then(songs => {
+          res.render("song/index", {
+            songs: songs
+          })
 
-function getSongs() {
-  return songCollection.find();
-}
+        });
+    },
 
-function getSong(userId) {
-  return songCollection.findById(userId);
-}
+    new: function (req, res) {
+      UserSchema.findById(req.params.uid)
+        .then(user => {
+          ArtistSchema.findById(req.params.aid)
+            .then(artist => {
+              res.render("song/new", {
+                user: user,
+                artist: artist
+              });
 
-function deleteSong(userId) {
-  return songCollection.deleteOne({ _id: userId});
-}
+            })
 
-function deleteAllSong() {
-  return songCollection.deleteMany({});
-}
+        })
 
-module.exports = {
-  createSong,
-  getSongs,
-  getSong,
-  deleteSong,
-  deleteAllSongs
-}
+    },
+
+
+    create: function (req, res) {
+      SongSchema.create({
+          SongName: req.body.SongName,
+          Album: req.body.Album,
+          artistId: req.params.aid
+      })
+        .then(() => {
+          res.redirect("song");
+        });
+    },
+
+
+
+    show: function (req, res) {
+      UserSchema.findById(req.params.uid)
+        .then(user => {
+          ArtistSchema.findById(req.params.aid)
+            .then(artist => {
+              SongSchema.findById(req.params.sid)
+                .then(song => {
+                  res.render("artist/show", {
+                    user: user,
+                    artist: artist,
+                    song: song
+                  });
+                })
+            });
+        });
+
+    },
+
+    edit: function (req, res) {
+      UserSchema.findById(req.params.uid)
+        .then(user => {
+          ArtistSchema.findById(req.params.aid)
+            .then(artist => {
+              SongSchema.findById(req.params.sid)
+              res.render("artist/edit", {
+                user: user,
+                artist: artist
+              });
+            });
+        });
+
+    },
+    update: function (req, res) {
+        UserSchema.findById(req.params.uid)
+          .then(user => {
+              ArtistSchema.findById(req.params.aid)
+                .then(artist => {
+                  SongSchema.findByIdAndUpdate(req.params.sid, req.body, {
+                      new: true
+                    })
+                    .then(() => {
+                      res.redirect("/user/" + req.params.uid + "/artist/" + req.params.aid + "/song/" + req.params.sid);
+                    });
+                });
+              });
+
+            },
+            delete: function (req, res) {
+              SongSchema.findByIdAndRemove(req.params.sid)
+                .then(() => {
+                  res.redirect("/user/" + req.params.uid + "/artist/"  + req.params.aid + "/song/");
+                });
+            }
+          }
+        module.exports = songController;
