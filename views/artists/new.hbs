@@ -1,21 +1,22 @@
 <main>
-    <form action="/user/" method="POST">
+    <form action="/user/{{userID}}/artist/new" method="POST">
 
         <div class="formBackground">
 
 
             <div id="Artists">
                 <label for="Artist Name">Artist Name:</label>
-                <input type="text" name="Artist Name">
+                <input type="text" name="ArtistName">
             </div>
 
             <div id="fg">
-                <label for=""Genre:> </label>
-                <input type="text" name="FavoriteGenre">
-                <input type="submit" value="Add Artist">
-
-
+                <label for="Genre">Genre: </label>
+                <input type="text" name="Genre">
             </div>
+            
+            
+             <input type="submit" value="Add Artist">
+
         </div>
     </form>
 </main>
